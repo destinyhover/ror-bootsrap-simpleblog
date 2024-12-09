@@ -4,6 +4,12 @@ RSpec.describe Article, type: :model do
   describe "validations" do
     it {should validate_presence_of :title}
     it {should validate_presence_of :text}
+
+    let(:user){create(:user)}
+    it "is valid with a title and text of valid length" do
+      article = Article.new(title:"0123456789", text:"0123456789", user: User.first)
+      expect(article).to be_valid
+    end  
   end
    describe "assotiations" do 
   it { should have_many :comments}
