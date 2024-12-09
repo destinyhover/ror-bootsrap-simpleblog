@@ -11,7 +11,7 @@ RSpec.describe Article, type: :model do
   end
 
   describe "#subject" do
-    #let(:user) { build_stubbed(:user) }
+    
     let(:article) { create(:article, title: 'Foo', user: User.first) }
 
     it "returns the title as subject" do
@@ -19,4 +19,11 @@ RSpec.describe Article, type: :model do
     end
   end
 
+  describe "#last_comment" do
+
+    let(:comment) {create(:comment, body: 'cmbdy67891', article: Article.first)}
+    it "returns the last comment" do
+      expect(comment.body).to eq 'cmbdy67891'
+    end
+  end
 end
