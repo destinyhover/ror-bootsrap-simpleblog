@@ -12,10 +12,10 @@ RSpec.describe Article, type: :model do
 
   describe "#subject" do
     
-    let(:article) { create(:article, title: 'Foo', user: User.first) }
+    let(:article) { create(:article, title: '0123456789', user: User.first) }
 
     it "returns the title as subject" do
-      expect(article.subject).to eq 'Foo'
+      expect(article.subject).to eq '0123456789'
     end
   end
 
