@@ -26,4 +26,12 @@ RSpec.describe Article, type: :model do
       expect(comment.body).to eq 'cmbdy67891'
     end
   end
+
+
+  describe "#last_comment" do
+      let(:article){create(:article, :with_comments, user: User.first)}
+    it "returns the last of 3 comments" do
+      expect(article.last_comment.body).to eq "Comment body 3"
+    end
+  end
 end
