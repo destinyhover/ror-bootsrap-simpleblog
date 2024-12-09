@@ -10,6 +10,22 @@ RSpec.describe Article, type: :model do
       article = Article.new(title:"0123456789", text:"0123456789", user: User.first)
       expect(article).to be_valid
     end  
+      it "is valid with a title longer of valid length" do
+      article = Article.new(title:"0"*141, text:"0123456789", user: User.first)
+      expect(article).not_to be_valid
+    end  
+      it "is valid with a text longer of valid length" do
+      article = Article.new(title:"0"*10, text:"0"*4001, user: User.first)
+      expect(article).not_to be_valid
+    end  
+      it "is valid with a title shorter of valid length" do
+      article = Article.new(title:"0"*8, text:"0"*400, user: User.first)
+      expect(article).not_to be_valid
+    end
+      it "is valid with a text shorter of valid length" do
+      article = Article.new(title:"0"*10, text:"0"*5, user: User.first)
+      expect(article).not_to be_valid
+    end
   end
    describe "assotiations" do 
   it { should have_many :comments}
