@@ -9,6 +9,7 @@ end
     @contact = Contact.new(contact_params)
     if @contact.valid?
       @contact.save
+      redirect_to new_contacts_path, notice: "Your message sent!"
     else
       render action: 'new'
     end
