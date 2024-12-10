@@ -1,4 +1,4 @@
-<h1>Contacts</h1>
+<h1><%=t('contacts.contact_us')%></h1>
 
 <%if @contact && @contact.errors.any?	%>
 <p><ul><%@contact.errors.full_messages.each do |m|%>
