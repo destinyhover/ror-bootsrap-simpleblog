@@ -6,10 +6,9 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments, only: [:create]
   end
-  resource :contacts, only: [:create]
+  resource :contacts, only: [:create, :new]
   get 'terms' => "pages#terms"
   get 'about' => 'pages#about'
-  get '/contacts' => 'contacts#new'
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
